@@ -1,21 +1,30 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import Dashboard from "./admin/Dashboard";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import rootStore from "../store/RootStore";
+
+import Header from "./front/Header/Header";
 
 export default class App extends Component {
     render() {
         return (
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <div className="card">
-                            <div className="card-header">Example Component</div>
+            // <BrowserRouter>
+            //     <Switch>
+            //         <div className="container">
+            //             <Header />
 
-                            <div className="card-body">
-                                I'm an example admin component!
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            //             <Switch>
+            //                 <Route
+            //                     path="/admin"
+            //                     component={() => <Dashboard />}
+            //                 />
+            //             </Switch>
+            //         </div>
+            //     </Switch>
+            // </BrowserRouter>
+            <div className="app">
+                <Dashboard store={rootStore} />
             </div>
         );
     }

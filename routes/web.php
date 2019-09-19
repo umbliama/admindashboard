@@ -15,7 +15,12 @@ Route::get('/', function () {
     return view('main');
 });
 
+Route::get('/api/news', "NewsController@index");
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get("/admin","Admin\AdminController@index");
+
+Route::get('/{view?}', function () {
+    return view('main');
+})->where('view', '(.*)');
+

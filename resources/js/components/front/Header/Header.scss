@@ -1,0 +1,20 @@
+.header {
+    &__menu {
+        justify-content: center;
+        display: flex;
+    }
+    &-btn {
+        &__span {
+            width: 20px;
+            height: 1px;
+            display: block;
+            background: #000;
+            &:first-of-type {
+                transform: translateY(5px);
+            }
+            &:last-of-type {
+                transform: translateY(-5px);
+            }
+        }
+    }
+}

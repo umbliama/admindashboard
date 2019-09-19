@@ -8,7 +8,9 @@ class Products extends Component {
     render() {
         return (
             <section className="products">
-                <table className="products__table" />
+                <table className="products__table">
+                    <td></td>
+                </table>
             </section>
         );
     }

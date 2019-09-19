@@ -17,9 +17,4 @@ mix.react("resources/js/app.js", "public/js").sass(
     "public/css"
 );
 
-mix.react("resources/js/adminApp.js", "public/js").sass(
-    "resources/sass/adminApp.scss",
-    "public/css"
-);
-
 mix.webpackConfig(config);
