@@ -22,6 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // })
 
-Route::get("/api/user",function () {
-    return App\User::all();
-});
+
+Route::get("/user","UserController@getAllUsers");
+
+Route::get('/news', "NewsController@index");

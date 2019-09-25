@@ -4,9 +4,7 @@ import NewsStore from "./NewsStore";
 class RootStore {
     constructor() {
         this.userStore = new UsersStore(this);
-        this.todoStore = new NewsStore(this);
+        this.userStore = new NewsStore(this);
     }
 }
-
-const rootStore = new RootStore();
-export default rootStore;
+export const rootStore = new RootStore();

@@ -1,0 +1,16 @@
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.table {
+    background: #f0f8ff;
+    &__cell {
+        padding: 0 1em;
+        border: 1px solid #000;
+    }
+}
+.btn {
+    background: transparent;
+    border: none;
+    outline: none;
+}

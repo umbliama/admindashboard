@@ -1,31 +1,19 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Dashboard from "./admin/Dashboard";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import rootStore from "../store/RootStore";
 
-import Header from "./front/Header/Header";
+import { Provider, observer } from "mobx-react";
+import RootStore from "../store/RootStore";
 
+@observer
 export default class App extends Component {
     render() {
         return (
-            // <BrowserRouter>
-            //     <Switch>
-            //         <div className="container">
-            //             <Header />
-
-            //             <Switch>
-            //                 <Route
-            //                     path="/admin"
-            //                     component={() => <Dashboard />}
-            //                 />
-            //             </Switch>
-            //         </div>
-            //     </Switch>
-            // </BrowserRouter>
-            <div className="app">
-                <Dashboard store={rootStore} />
-            </div>
+            <Provider rootStore={new RootStore()}>
+                <div className="app">
+                    <Dashboard />
+                </div>
+            </Provider>
         );
     }
 }

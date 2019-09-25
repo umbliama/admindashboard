@@ -11,14 +11,17 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('main');
 });
 
-Route::get('/api/news', "NewsController@index");
 
 Auth::routes();
 
+Route::delete('users/delete/{id}', 'UserController@destroy');
+Route::post('users/create', 'UserController@store');
 
 Route::get('/{view?}', function () {
     return view('main');

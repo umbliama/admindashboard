@@ -6,6 +6,10 @@
 
         <title>Main</title>
 
+        <script type="text/javascript">
+            window.token = "{{csrf_token()}}";
+        </script>
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
