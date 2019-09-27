@@ -1,0 +1,9 @@
+@import "../scss/mixins";
+.news-list {
+    &__text {
+    }
+
+    &__body {
+        @include textCutter(250px);
+    }
+}

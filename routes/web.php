@@ -23,6 +23,9 @@ Auth::routes();
 Route::delete('users/delete/{id}', 'UserController@destroy');
 Route::post('users/create', 'UserController@store');
 
+Route::delete('news/delete/{id}', 'NewsController@destroy');
+
+
 Route::get('/{view?}', function () {
     return view('main');
 })->where('view', '(.*)');

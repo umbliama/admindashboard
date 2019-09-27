@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { observer } from "mobx-react";
+import { observer, inject } from "mobx-react";
 import "./Users.scss";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import CreateUser from "../CreateUser/CreateUser";
 
+@inject("usersStore")
 @observer
 class Users extends Component {
     constructor(props) {
@@ -11,19 +11,18 @@ class Users extends Component {
         this.state = {};
     }
     componentDidMount() {
-        this.props.store.getUserInfo();
+        this.props.usersStore.getUserInfo();
     }
     deleteUser(userId) {
-        this.props.store.deleteUser(userId);
+        this.props.usersStore.deleteUser(userId);
     }
     render() {
-        const store = this.props.store;
+        const store = this.props.usersStore;
         return (
             <BrowserRouter>
                 <Switch>
                     <section className="users">
                         <div className="container">
-                            {console.log(store)}
                             <table className="table">
                                 <tbody>
                                     <tr>
@@ -48,7 +47,7 @@ class Users extends Component {
                                         </Link>
                                     </tr>
                                     {store.user.map(user => (
-                                        <tr>
+                                        <tr key={user.id}>
                                             <td className="table__cell">
                                                 {user.id}
                                             </td>
@@ -67,9 +66,9 @@ class Users extends Component {
                                                 {user.created_at}
                                             </td>
                                             <button
-                                                onClick={this.deleteUser(
-                                                    user.id
-                                                )}
+                                                onClick={() =>
+                                                    this.deleteUser(user.id)
+                                                }
                                                 className="btn"
                                             >
                                                 Delete user

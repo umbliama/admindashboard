@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use DateTime;
 
 class UserController extends Controller
 {
@@ -108,4 +109,13 @@ class UserController extends Controller
     public function getAllUsers() {
         return User::all();
     }
+
+
+    public function getQuantityLastMonth(){
+        $user = User::where('created_at', '>=', new DateTime('-31 days'))->get(); 
+        $total = $user->count();
+        return $total;
+    }
+
+
 }

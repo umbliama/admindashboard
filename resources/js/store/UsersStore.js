@@ -17,7 +17,7 @@ class UsersStore {
 
     @action async getUserInfo() {
         try {
-            const response = await axios.get("/api/user");
+            const response = await axios.get("/api/users");
             this.user = response.data;
         } catch (error) {
             console.error(error);

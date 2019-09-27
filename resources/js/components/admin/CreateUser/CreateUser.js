@@ -1,22 +1,24 @@
 import React, { Component } from "react";
+import { inject } from "mobx-react";
 
+@inject("usersStore")
 class CreateUser extends Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
     updateUser = (key, value) => {
-        this.props.store.userForm[key] = value;
+        this.props.usersStore.userForm[key] = value;
     };
     onChange = () => {
         this.updateUser(event.target.name, event.target.value);
     };
 
     createUser = () => {
-        this.props.store.createUser(
-            this.props.store.userForm["name"],
-            this.props.store.userForm["email"],
-            this.props.store.userForm["password"]
+        this.props.usersStore.createUser(
+            this.props.usersStore.userForm["name"],
+            this.props.usersStore.userForm["email"],
+            this.props.usersStore.userForm["password"]
         );
     };
 
